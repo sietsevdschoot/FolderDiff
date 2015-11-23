@@ -3,6 +3,7 @@ using System.IO;
 using System.IO.Abstractions;
 using System.Security.AccessControl;
 using FolderDiffLib.DelimonHelpers.Util;
+using FolderDiffLib.Util;
 
 namespace FolderDiffLib.DelimonHelpers
 {

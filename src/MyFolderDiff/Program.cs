@@ -20,7 +20,7 @@ namespace FolderDiff.Sample
             }
             var arguments = ArgumentsParser.Default.ParseArguments(args);
             var factory = new FolderDiffToolFactory();
-            var diffTool = factory.Create(supportLongFilenames: false);
+            var diffTool = factory.Create(supportLongFilenames: true);
             
             var runner = new Runner(diffTool);
 

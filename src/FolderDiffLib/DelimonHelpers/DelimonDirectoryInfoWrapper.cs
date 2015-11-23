@@ -4,6 +4,7 @@ using System.IO.Abstractions;
 using System.Security.AccessControl;
 using Delimon.Win32.IO;
 using FolderDiffLib.DelimonHelpers.Util;
+using FolderDiffLib.Util;
 using FileAttributes = System.IO.FileAttributes;
 using SearchOption = System.IO.SearchOption;
 

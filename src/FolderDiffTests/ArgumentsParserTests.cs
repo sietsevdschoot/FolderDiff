@@ -41,7 +41,7 @@ namespace FolderDiffTests
         }
 
         [TestMethod]
-        public void ParseArguments_ParsesPathWithAndWIthoutSpaces_variant()
+        public void ParseArguments_ParsesPathWithAndWIthoutSpaces_OtherVariant()
         {
             var args = GetParsedArgument(string.Format("{0} \"{1}\"", Folder1, Folder2WithSpace));
 

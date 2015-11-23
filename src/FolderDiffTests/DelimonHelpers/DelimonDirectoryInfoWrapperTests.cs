@@ -2,6 +2,7 @@
 using System.IO;
 using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
+using System.Reflection;
 using FluentAssertions;
 using FolderDiffLib.DelimonHelpers;
 using FolderDiffLib.DelimonHelpers.Util;
@@ -37,6 +38,8 @@ namespace FolderDiffTests.DelimonHelpers
         [TestMethod]
         public void GetFiles_gets_files_recursively()
         {
+            var x = Assembly.LoadFile(@"D:\Development\Github\FolderDiff\src\FolderDiffPowerShell\Delimon.Win32.IO.dll").FullName;
+            
             var files = _directory.GetFiles("*.*", SearchOption.AllDirectories);
             
             files.Should().HaveCount(6);
@@ -45,9 +48,9 @@ namespace FolderDiffTests.DelimonHelpers
         [TestMethod]
         public void GetFiles_gets_directories_recursively()
         {
-            var files = _directory.GetDirectories("*", SearchOption.AllDirectories);
+            var directories = _directory.GetDirectories("*", SearchOption.AllDirectories);
             
-            files.Should().HaveCount(2);
+            directories.Should().HaveCount(2);
         }
     }
 }

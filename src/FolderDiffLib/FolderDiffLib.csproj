@@ -56,8 +56,8 @@
     <Compile Include="DelimonHelpers\DelimonFileInfoFactory.cs" />
     <Compile Include="DelimonHelpers\Util\DelimonHelpersBase.cs" />
     <Compile Include="DelimonHelpers\Util\DelimonHelpersWrapper.cs" />
-    <Compile Include="DelimonHelpers\Util\KeyEqualityComparer.cs" />
-    <Compile Include="DelimonHelpers\Util\MyConverters.cs" />
+    <Compile Include="Util\KeyEqualityComparer.cs" />
+    <Compile Include="Util\MyConverters.cs" />
     <Compile Include="DelimonHelpers\Util\MyRecursionHelpers.cs" />
     <Compile Include="FolderDiff.cs" />
     <Compile Include="FolderDiffToolFactory.cs" />
