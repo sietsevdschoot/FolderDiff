@@ -81,13 +81,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FolderDiff.Sample\FolderDiff.Sample.csproj">
+      <Project>{166a5d4e-379e-4657-bb24-d424242f3614}</Project>
+      <Name>FolderDiff.Sample</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FolderDiffLib\FolderDiffLib.csproj">
       <Project>{C596EAE3-BB4F-425E-860B-1017C60085E9}</Project>
       <Name>FolderDiffLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyFolderDiff\FolderDiff.Sample.csproj">
-      <Project>{166A5D4E-379E-4657-BB24-D424242F3614}</Project>
-      <Name>FolderDiff.Sample</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

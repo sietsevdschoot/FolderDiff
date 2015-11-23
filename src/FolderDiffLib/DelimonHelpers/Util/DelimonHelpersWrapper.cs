@@ -1,4 +1,5 @@
 ﻿using Delimon.Win32.IO;
+using FolderDiffLib.DelimonHelpers.Util;
 
 namespace FolderDiffLib.DelimonHelpers.Util
 {
