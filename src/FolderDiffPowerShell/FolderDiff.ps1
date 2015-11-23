@@ -1,4 +1,4 @@
-﻿ param (
+﻿param (
 	[string] $referenceFolder,
 	[string] $differenceFolder,
 	[boolean] $supportLongFilenames
@@ -6,23 +6,16 @@
 
 Set-Location $PSScriptRoot
 
-. ".\CollectionUtils.ps1"
+. ".\32BitHelpers.ps1"
+. ".\MyFolderDiff.ps1"
 
-function MyFolderDiff {
-	param(
-	[string] $referenceFolder,
-	[string] $differenceFolder,
-	[boolean] $supportLongFilesNames)
-	
-	Add-Type -path '.\FolderDiffLib.dll'
-
-	$instance = New-Object FolderDiffLib.FolderDiff
-
-	@($instance.DiffFolder($referenceFolder, $differenceFolder, $supportLongFilesNames
-		,{ param($file, $refFiles) $refFiles | Test-Any { $file.RelativePath -eq $_.RelativePath -and $file.File.LastWriteTime -gt $_.File.LastWriteTime} }
-		,{ param($file, $refFiles) ($refFiles | %{ $_.RelativePath }) -NotContains $file.RelativePath }
-	))
+if (-not (Is32BitEnvironment) -and $supportLongFilenames)
+{
+	RunFolderDiffAs32Bit $referenceFolder  $differenceFolder  $supportLongFilenames
+}
+else
+{
+	MyFolderDiff $referenceFolder $differenceFolder $supportLongFilenames 
 }
 
-MyFolderDiff $referenceFolder $differenceFolder $supportLongFilenames
 
