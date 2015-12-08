@@ -14,6 +14,6 @@ function MyFolderDiff {
 
 	@($instance.DiffFolder($referenceFolder, $differenceFolder, $supportLongFilesNames
 		,{ param($file, $referenceFiles) $referenceFiles | Test-Any { $file.RelativePath -eq $_.RelativePath -and $file.File.LastWriteTime -gt $_.File.LastWriteTime} }
-		,{ param($file, $referenceFiles) ($referenceFiles | %{ $_.RelativePath }) -NotContains $file.RelativePath }
+		,{ param($file, $referenceFiles) -Not (File-Exists $referenceFolder $file.RelativePath) }
 	))
 }

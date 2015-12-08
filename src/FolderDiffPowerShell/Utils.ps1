@@ -17,6 +17,12 @@ function Test-Any {
     }
 }
 
+function File-Exists {
+	param(
+	[string] $referenceFolder,
+	[string] $fileRelativePath
+	)
 
-
-
+	$fileInReferenceFolder = Join-Path -Path $referenceFolder -ChildPath $fileRelativePath
+	Test-Path $fileInReferenceFolder
+}
