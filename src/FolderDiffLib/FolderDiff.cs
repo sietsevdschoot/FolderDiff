@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO.Abstractions;
-using FolderDiffLib.Common;
 
 namespace FolderDiffLib
 {

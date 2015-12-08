@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\FolderDiffTool.cs" />
-    <Compile Include="Common\IFolderDiffTool.cs" />
-    <Compile Include="Common\MyFileInfo.cs" />
+    <Compile Include="FolderDiffTool.cs" />
+    <Compile Include="IFolderDiffTool.cs" />
+    <Compile Include="MyFileInfo.cs" />
     <Compile Include="DelimonHelpers\DelimonDirectoryInfoFactory.cs" />
     <Compile Include="DelimonHelpers\DelimonDirectoryInfoWrapper.cs" />
     <Compile Include="DelimonHelpers\DelimonFileInfoWrapper.cs" />
@@ -56,8 +56,8 @@
     <Compile Include="DelimonHelpers\DelimonFileInfoFactory.cs" />
     <Compile Include="DelimonHelpers\Util\DelimonHelpersBase.cs" />
     <Compile Include="DelimonHelpers\Util\DelimonHelpersWrapper.cs" />
-    <Compile Include="Util\KeyEqualityComparer.cs" />
-    <Compile Include="Util\MyConverters.cs" />
+    <Compile Include="DelimonHelpers\Util\KeyEqualityComparer.cs" />
+    <Compile Include="DelimonHelpers\Util\MyConverters.cs" />
     <Compile Include="DelimonHelpers\Util\MyRecursionHelpers.cs" />
     <Compile Include="FolderDiff.cs" />
     <Compile Include="FolderDiffToolFactory.cs" />

@@ -30,7 +30,7 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="32BitHelpers.ps1" />
-    <Compile Include="CollectionUtils.ps1" />
+    <Compile Include="Utils.ps1" />
     <Compile Include="FolderDiff.ps1" />
     <Compile Include="MyFolderDiff.ps1" />
   </ItemGroup>

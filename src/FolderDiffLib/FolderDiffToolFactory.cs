@@ -1,5 +1,4 @@
 ﻿using System.IO.Abstractions;
-using FolderDiffLib.Common;
 using FolderDiffLib.DelimonHelpers;
 
 namespace FolderDiffLib

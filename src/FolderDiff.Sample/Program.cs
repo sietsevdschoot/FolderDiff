@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FolderDiff.Sample.Properties;
 using FolderDiffLib;
 
@@ -13,7 +14,7 @@ namespace FolderDiff.Sample
 
         private static void RunApp(string[] args)
         {
-            if (string.IsNullOrEmpty(string.Join("", args)))
+            if (!args.Any() || args[0] == "/?")
             {
                 Console.WriteLine(Resources.Instructions);
                 Environment.Exit(0);
@@ -35,13 +36,8 @@ namespace FolderDiff.Sample
             }
             catch (Exception ex)
             {
-                Console.WriteLine(Resources.Instructions);
-                Console.WriteLine();
-                Console.WriteLine();
                 Console.WriteLine(ex.Message);
             }
         }
-
-        
     }
 }

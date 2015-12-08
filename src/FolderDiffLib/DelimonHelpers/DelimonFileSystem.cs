@@ -6,34 +6,35 @@ namespace FolderDiffLib.DelimonHelpers
     [Serializable]
     public class DelimonFileSystem : IFileSystem
     {
-        DirectoryBase directory;
+        private DirectoryBase _directory;
+        private FileBase _file;
+        private DelimonFileInfoFactory _fileInfoFactory;
+        private PathBase _path;
+        private DelimonDirectoryInfoFactory _directoryInfoFactory;
+
         public DirectoryBase Directory
         {
-            get { return directory ?? (directory = new DirectoryWrapper()); }
+            get { return _directory ?? (_directory = new DirectoryWrapper()); }
         }
 
-        FileBase file;
         public FileBase File
         {
-            get { return file ?? (file = new FileWrapper()); }
+            get { return _file ?? (_file = new FileWrapper()); }
         }
 
-        DelimonFileInfoFactory fileInfoFactory;
         public IFileInfoFactory FileInfo
         {
-            get { return fileInfoFactory ?? (fileInfoFactory = new DelimonFileInfoFactory()); }
+            get { return _fileInfoFactory ?? (_fileInfoFactory = new DelimonFileInfoFactory()); }
         }
-
-        PathBase path;
+        
         public PathBase Path
         {
-            get { return path ?? (path = new PathWrapper()); }
+            get { return _path ?? (_path = new PathWrapper()); }
         }
-
-        DelimonDirectoryInfoFactory directoryInfoFactory;
+        
         public IDirectoryInfoFactory DirectoryInfo
         {
-            get { return directoryInfoFactory ?? (directoryInfoFactory = new DelimonDirectoryInfoFactory()); }
+            get { return _directoryInfoFactory ?? (_directoryInfoFactory = new DelimonDirectoryInfoFactory()); }
         }
     }
 }

@@ -4,7 +4,6 @@ using System.IO.Abstractions;
 using System.Security.AccessControl;
 using Delimon.Win32.IO;
 using FolderDiffLib.DelimonHelpers.Util;
-using FolderDiffLib.Util;
 using FileAttributes = System.IO.FileAttributes;
 using SearchOption = System.IO.SearchOption;
 
@@ -252,6 +251,7 @@ namespace FolderDiffLib.DelimonHelpers
         {
             return _instance.GetFileSystemInfos(searchPattern).WrapFileSystemInfos();
         }
+
         public override DirectorySecurity GetAccessControl()
         {
             return this._instance.GetAccessControl();

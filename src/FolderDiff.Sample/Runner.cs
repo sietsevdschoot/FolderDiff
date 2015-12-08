@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using FolderDiffLib.Common;
+using FolderDiffLib;
 
 namespace FolderDiff.Sample
 {
