@@ -1,5 +1,14 @@
-﻿#http://stackoverflow.com/a/22090065
+﻿param (
+	[boolean] $supportLongFilenames
+ )
 
+Set-Location $PSScriptRoot
+
+Add-Type -path '.\FolderDiffLib.dll'
+$factory = New-Object FolderDiffLib.FolderDiffToolFactory
+$diffTool = $factory.Create($supportLongFilenames)
+
+#http://stackoverflow.com/a/22090065
 function Test-Any {
     [CmdletBinding()]
     param($EvaluateCondition,
@@ -19,10 +28,20 @@ function Test-Any {
 
 function File-Exists {
 	param(
-	[string] $referenceFolder,
+	[string] $path,
 	[string] $fileRelativePath
 	)
 
-	$fileInReferenceFolder = Join-Path -Path $referenceFolder -ChildPath $fileRelativePath
-	Test-Path $fileInReferenceFolder
+	$fileInReferenceFolder = Join-Path -Path $path -ChildPath $fileRelativePath
+	$diffTool.FileExists($fileInReferenceFolder)
+}
+
+function Get-File {
+	param(
+	[string] $path,
+	[string] $fileRelativePath
+	)
+
+	$fileInReferenceFolder = Join-Path -Path $path -ChildPath $fileRelativePath
+	$diffTool.GetFile($fileInReferenceFolder)
 }

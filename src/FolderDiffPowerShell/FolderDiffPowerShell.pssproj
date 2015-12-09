@@ -8,7 +8,7 @@
     <RootNamespace>MyApplication</RootNamespace>
     <AssemblyName>MyApplication</AssemblyName>
     <Name>FolderDiffPowerShell</Name>
-    <DebugArguments>d:\temp\folder1\ d:\temp\folder2\ $false</DebugArguments>
+    <DebugArguments>"c:\Temp\ps\Folder3\" "c:\Temp\Folder4\" $true</DebugArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -10,5 +10,8 @@ namespace FolderDiffLib
             string referenceFolder,
             string differenceFolder,
             params Func<MyFileInfo, IEnumerable<MyFileInfo>, bool>[] fileSelectors);
+
+        bool FileExists(string path);
+        FileInfoBase GetFile(string path);
     }
 }

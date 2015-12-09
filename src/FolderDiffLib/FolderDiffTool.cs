@@ -36,6 +36,16 @@ namespace FolderDiffLib
             return uniqueFiles.ToList();
         }
 
+        public bool FileExists(string path)
+        {
+            return _fileSystem.FileInfo.FromFileName(path).Exists;
+        }
+
+        public FileInfoBase GetFile(string path)
+        {
+            return _fileSystem.FileInfo.FromFileName(path);
+        }
+
         private IEnumerable<MyFileInfo> GetFiles(string path)
         {
             return _fileSystem.DirectoryInfo.FromDirectoryName(path)
