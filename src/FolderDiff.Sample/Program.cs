@@ -25,7 +25,7 @@ namespace FolderDiff.Sample
             
             var runner = new Runner(diffTool);
 
-            runner.GetNewerAndUniqueDiffFiles(arguments.ReferenceFolder, arguments.DiffFolder);
+            Console.WriteLine(runner.GetNewerAndUniqueDiffFiles(arguments.ReferenceFolder, arguments.DiffFolder));
         }
 
         private static void Try(Action action)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Delimon.Win32.IO;
 using FolderDiffLib;
 
 namespace FolderDiff.Sample
@@ -16,9 +17,16 @@ namespace FolderDiff.Sample
         public string GetNewerAndUniqueDiffFiles(string referenceFolder, string differenceFolder)
         {
             var files = _diffTool.DiffFolder(referenceFolder, differenceFolder,
-                (file, refFiles) => refFiles.Any(refFile => file.RelativePath.Equals(refFile.RelativePath) && file.File.LastWriteTime > refFile.File.LastWriteTime),
-                (file, refFiles) => !refFiles.Select(x => x.RelativePath).Contains(file.RelativePath)
-            );
+                (file, refFiles) =>
+                {
+                    var referenceFile = Path.Combine(referenceFolder, file.RelativePath);
+                    return _diffTool.FileExists(referenceFile) && file.File.LastWriteTime > _diffTool.GetFile(referenceFile).LastWriteTime;
+                },
+                (file, refFiles) =>
+                {
+                    var referenceFile = Path.Combine(referenceFolder, file.RelativePath);
+                    return !_diffTool.FileExists(referenceFile);
+                });
 
             var output = string.Format("\n{0}\n", string.Join("\n", files.OrderBy(x => x.FullName).Select(x => x.FullName)));
 
