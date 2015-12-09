@@ -31,7 +31,7 @@ namespace FolderDiffLib
 
             var uniqueFiles = selectedFiles
                 .Select(x => x.File)
-                .Distinct(new KeyEqualityComparer<FileInfoBase>(x => x.FullName));
+                .Distinct(x => x.FullName);
 
             return uniqueFiles.ToList();
         }

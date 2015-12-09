@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FolderDiffLib.DelimonHelpers.Util
 {
@@ -31,6 +32,14 @@ namespace FolderDiffLib.DelimonHelpers.Util
             return !Equals(_keySelector(obj), default(T))
                 ? _keySelector(obj).GetHashCode()
                 : 0;
+        }
+    }
+
+    public static class EnumerableExtensions
+    {
+        public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, object> keySelector)
+        {
+            return source.Distinct(new KeyEqualityComparer<T>(keySelector));
         }
     }
 }
