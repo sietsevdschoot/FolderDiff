@@ -13,7 +13,7 @@ namespace FolderDiffLib.DelimonHelpers
 
         public DelimonFileInfoWrapper(Delimon.Win32.IO.FileInfo instance)
         {
-            _instance = new Delimon.Win32.IO.FileInfo(instance.FullName);
+            _instance = instance;
         }
 
         public DelimonFileInfoWrapper(string fullName)

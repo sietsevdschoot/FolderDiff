@@ -4,6 +4,7 @@ using System.IO.Abstractions.TestingHelpers;
 using FluentAssertions;
 using FolderDiffLib.DelimonHelpers;
 using FolderDiffLib.DelimonHelpers.Util;
+using FolderDiffLibTests.TestUtils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FolderDiffLibTests.DelimonHelpers
