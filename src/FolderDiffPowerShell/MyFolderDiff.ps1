@@ -12,7 +12,7 @@ function MyFolderDiff {
 	$instance = New-Object FolderDiffLib.FolderDiff
 
 	@($instance.DiffFolder($referenceFolder, $differenceFolder, $supportLongFilesNames
-		,{ param($file, $referenceFiles) (File-Exists $referenceFolder $file.RelativePath) -and $file.File.LastWriteTime -gt (Get-File $referenceFolder $file.RelativePath).LastWriteTime }
-		,{ param($file, $referenceFiles) -Not (File-Exists $referenceFolder $file.RelativePath) }
+		,{ param($diffFile, $referenceFiles) (File-Exists $referenceFolder $file.RelativePath) -and $diffFile.File.LastWriteTime -gt (Get-File $referenceFolder $diffFile.RelativePath).LastWriteTime }
+		,{ param($diffFile, $referenceFiles) -Not (File-Exists $referenceFolder $diffFile.RelativePath) }
 	))
 }
