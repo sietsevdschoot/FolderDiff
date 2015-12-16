@@ -2,6 +2,7 @@
 using System.Linq;
 using FolderDiff.Sample.Properties;
 using FolderDiffLib;
+using FolderDiffLib.DiffTools;
 
 namespace FolderDiff.Sample
 {

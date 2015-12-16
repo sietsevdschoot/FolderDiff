@@ -2,6 +2,8 @@
 using System.Linq;
 using Delimon.Win32.IO;
 using FolderDiffLib;
+using FolderDiffLib.DiffTools;
+using FolderDiffLib.DiffTools.Interfaces;
 
 namespace FolderDiff.Sample
 {

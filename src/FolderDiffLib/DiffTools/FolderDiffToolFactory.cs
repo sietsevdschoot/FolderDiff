@@ -1,7 +1,8 @@
 ﻿using System.IO.Abstractions;
 using FolderDiffLib.DelimonHelpers;
+using FolderDiffLib.DiffTools.Interfaces;
 
-namespace FolderDiffLib
+namespace FolderDiffLib.DiffTools
 {
     public class FolderDiffToolFactory
     {

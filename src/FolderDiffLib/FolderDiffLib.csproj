@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FolderDiffTool.cs" />
-    <Compile Include="IFolderDiffTool.cs" />
-    <Compile Include="MyFileInfo.cs" />
+    <Compile Include="DiffTools\FolderDiffTool.cs" />
+    <Compile Include="DiffTools\Interfaces\IFolderDiffTool.cs" />
+    <Compile Include="DiffTools\MyFileInfo.cs" />
     <Compile Include="DelimonHelpers\DelimonDirectoryInfoFactory.cs" />
     <Compile Include="DelimonHelpers\DelimonDirectoryInfoWrapper.cs" />
     <Compile Include="DelimonHelpers\DelimonFileInfoWrapper.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="DelimonHelpers\Util\MyConverters.cs" />
     <Compile Include="DelimonHelpers\Util\MyRecursionHelpers.cs" />
     <Compile Include="FolderDiff.cs" />
-    <Compile Include="FolderDiffToolFactory.cs" />
+    <Compile Include="DiffTools\FolderDiffToolFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +69,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetDir)*.dll $(SolutionDir)FolderDiffPowerShell\ /y</PostBuildEvent>
+    <PostBuildEvent>start xcopy $(TargetDir)*.dll $(SolutionDir)FolderDiffPowerShell\ /y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

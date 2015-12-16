@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO.Abstractions;
 
-namespace FolderDiffLib
+namespace FolderDiffLib.DiffTools.Interfaces
 {
     public interface IFolderDiffTool
     {

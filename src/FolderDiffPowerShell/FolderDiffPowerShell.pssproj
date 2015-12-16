@@ -8,8 +8,8 @@
     <RootNamespace>MyApplication</RootNamespace>
     <AssemblyName>MyApplication</AssemblyName>
     <Name>FolderDiffPowerShell</Name>
-    <DebugArguments>
-    </DebugArguments>
+    <DebugArguments>.\FolderDiff.ps1 
+FolderDiff c:\temp\ps\Folder3\ c:\temp\ps\folder4\ $true</DebugArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,9 +31,10 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="32BitHelpers.ps1" />
+    <Compile Include="FolderDiff.bat" />
+    <Compile Include="Measure.ps1" />
     <Compile Include="Utils.ps1" />
     <Compile Include="FolderDiff.ps1" />
-    <Compile Include="MyFolderDiff.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

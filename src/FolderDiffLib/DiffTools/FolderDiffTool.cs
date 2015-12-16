@@ -4,8 +4,9 @@ using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 using FolderDiffLib.DelimonHelpers.Util;
+using FolderDiffLib.DiffTools.Interfaces;
 
-namespace FolderDiffLib
+namespace FolderDiffLib.DiffTools
 {
     public class FolderDiffTool : IFolderDiffTool
     {

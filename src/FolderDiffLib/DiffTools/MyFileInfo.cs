@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.IO.Abstractions;
 
-namespace FolderDiffLib
+namespace FolderDiffLib.DiffTools
 {
     [DebuggerDisplay("{RelativePath} - {File.FullName}")]
     public class MyFileInfo
