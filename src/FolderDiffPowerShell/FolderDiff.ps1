@@ -19,13 +19,16 @@ function FolderDiff-Search {
 	Add-Type -path '.\FolderDiffLib.dll'
 	$instance = New-Object FolderDiffLib.FolderDiff
 
-	@($instance.DiffFolder($referenceFolder, $differenceFolder, $supportLongFilesNames
-		,{ param($diffFile, $referenceFiles) 
+	@($instance.DiffFolder($referenceFolder, $differenceFolder, $supportLongFilesNames,
+		{ param($diffFile, $referenceFiles) 
 			$refFileExists = (File-Exists $referenceFolder $diffFile.RelativePath)
 			$diffFileIsNewer = $diffFile.File.LastWriteTime -gt (Get-File $referenceFolder $diffFile.RelativePath).LastWriteTime 
 			
-			$refFileExists -and $diffFileIsNewer }
-		,{ param($diffFile, $referenceFiles) -Not (File-Exists $referenceFolder $diffFile.RelativePath) }
+			$refFileExists -and $diffFileIsNewer 
+		},
+		{ param($diffFile, $referenceFiles) 
+			-Not (File-Exists $referenceFolder $diffFile.RelativePath) 
+		}
 	))
 }
 
