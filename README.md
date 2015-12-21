@@ -138,14 +138,14 @@ Some cmdlets are available to help in selecting files
 ##### Examples:
 
 If we need to get the main folders which contain newer or unique files.<br />
-We can write: Only list the folders which have 6 subdirectories or less.
+We can write: only list the folders which have 6 subdirectories or less.
 
 ```PowerShell
 .\FolderDiff.ps1 C:\Backup\PC\Development\ C:\Backup\Laptop\Development\ `
   | %{ $_.Directory.FullName } | Get-Unique | ? { ($_.Split("\")).Length -lt 6 }
 ````
 
-I will update the examples when required.
+I will update the examples on request.
 
 ## Contributing
 
@@ -163,12 +163,12 @@ I will update the examples when required.
 
 - [Delimon.Win32.IO](https://gallery.technet.microsoft.com/DelimonWin32IO-Library-17cc7893) by Johan Delimon
 
-...It is a great library to overcome the windows file system limitation on folder- and filename size.
+   It is a great library to overcome the windows file system limitation on folder- and filename length.
 
 - [System.IO.Abstractions](https://github.com/tathamoddie/System.IO.Abstractions) by Tatham Oddie 
 
-...Great and essential Nuget package if you want to write testable code which relies on the FileSystem!
-...I use this package for all my IO projects, make sure to also checkout [System.IO.Abstractions.TestingHelpers](https://www.nuget.org/packages/System.IO.Abstractions.TestingHelpers/)
+   Great and essential Nuget package if you want to write testable code which relies on the FileSystem.<br />
+   I use this package for all my IO projects. Make sure to also checkout [System.IO.Abstractions.TestingHelpers](https://www.nuget.org/packages/System.IO.Abstractions.TestingHelpers/)
 
 
 
