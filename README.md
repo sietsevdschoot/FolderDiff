@@ -169,10 +169,3 @@ I will update the examples on request.
 
    Great and essential Nuget package if you want to write testable code which relies on the FileSystem.<br />
    I use this package for all my IO projects. Make sure to also checkout [System.IO.Abstractions.TestingHelpers](https://www.nuget.org/packages/System.IO.Abstractions.TestingHelpers/)
-
-
-
-## License
-
- 
-TODO: Write license
