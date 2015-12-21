@@ -17,14 +17,14 @@ function FolderDiff-Search {
 	. ".\Utils.ps1" $supportLongFilesNames
 
 	Add-Type -path '.\FolderDiffLib.dll'
-	$instance = New-Object FolderDiffLib.FolderDiff
+	$folderDiff = New-Object FolderDiffLib.FolderDiff
 
-	@($instance.DiffFolder($referenceFolder, $differenceFolder, $supportLongFilesNames,
+	@($folderDiff.DiffFolder($referenceFolder, $differenceFolder, $supportLongFilesNames,
 		{ param($diffFile, $referenceFiles) 
-			$refFileExists = (File-Exists $referenceFolder $diffFile.RelativePath)
-			$diffFileIsNewer = $diffFile.File.LastWriteTime -gt (Get-File $referenceFolder $diffFile.RelativePath).LastWriteTime 
+			$refFile = (Get-File $referenceFolder $diffFile.RelativePath)
+			$diffFileIsNewer = $diffFile.File.LastWriteTime -gt $refFile.LastWriteTime 
 			
-			$refFileExists -and $diffFileIsNewer 
+			$refFile.Exists -and $diffFileIsNewer 
 		},
 		{ param($diffFile, $referenceFiles) 
 			-Not (File-Exists $referenceFolder $diffFile.RelativePath) 

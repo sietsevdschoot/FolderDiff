@@ -5,7 +5,7 @@
 Set-Location $PSScriptRoot
 
 Add-Type -path '.\FolderDiffLib.dll'
-$factory = New-Object FolderDiffLib.FolderDiffToolFactory
+$factory = New-Object FolderDiffLib.DiffTools.FolderDiffToolFactory
 $diffTool = $factory.Create($supportLongFilenames)
 
 function File-Exists {
