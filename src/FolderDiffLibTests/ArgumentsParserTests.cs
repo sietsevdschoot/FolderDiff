@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FolderDiff.Sample;
+using FolderDiffLib.Sample;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FolderDiffLibTests

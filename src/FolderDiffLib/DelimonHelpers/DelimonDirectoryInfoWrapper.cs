@@ -14,15 +14,15 @@ namespace FolderDiffLib.DelimonHelpers
         private readonly Delimon.Win32.IO.DirectoryInfo _instance;
         private readonly MyRecursionHelpers _helpers;
 
+        public DelimonDirectoryInfoWrapper(Delimon.Win32.IO.DirectoryInfo instance)
+            : this(new MyRecursionHelpers(new DelimonHelpersWrapper()), instance)
+        {
+        }
+
         public DelimonDirectoryInfoWrapper(MyRecursionHelpers helpers, DirectoryInfo instance)
         {
             _helpers = helpers;
             _instance = instance;
-        }
-
-        public DelimonDirectoryInfoWrapper(Delimon.Win32.IO.DirectoryInfo instance)
-            : this(new MyRecursionHelpers(new DelimonHelpersWrapper()), instance)
-        {
         }
 
         public DelimonDirectoryInfoWrapper(System.IO.DirectoryInfo instance)
@@ -259,5 +259,11 @@ namespace FolderDiffLib.DelimonHelpers
         {
             _instance.SetAccessControl(directorySecurity);
         }
+
+        public static implicit operator DelimonDirectoryInfoWrapper(Delimon.Win32.IO.DirectoryInfo directoryInfo)
+        {
+            return new DelimonDirectoryInfoWrapper(directoryInfo);
+        }
+
     }
 }

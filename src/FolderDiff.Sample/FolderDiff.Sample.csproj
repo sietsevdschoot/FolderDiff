@@ -7,8 +7,8 @@
     <ProjectGuid>{166A5D4E-379E-4657-BB24-D424242F3614}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FolderDiff.Sample</RootNamespace>
-    <AssemblyName>FolderDiff</AssemblyName>
+    <RootNamespace>FolderDiffLib.Sample</RootNamespace>
+    <AssemblyName>FolderDiffLib.Sample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

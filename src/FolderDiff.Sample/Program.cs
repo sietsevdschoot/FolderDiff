@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
-using FolderDiff.Sample.Properties;
-using FolderDiffLib;
 using FolderDiffLib.DiffTools;
+using FolderDiffLib.Sample.Properties;
 
-namespace FolderDiff.Sample
+namespace FolderDiffLib.Sample
 {
     class Program
     {
@@ -21,10 +20,12 @@ namespace FolderDiff.Sample
                 Environment.Exit(0);
             }
             var arguments = ArgumentsParser.Default.ParseArguments(args);
-            var factory = new FolderDiffToolFactory();
-            var diffTool = factory.Create(supportLongFilenames: true);
             
-            var runner = new Runner(diffTool);
+            var fileSystem = FileSystemFactory.Create(supportLongFilenames: true);
+            var diffTool = FolderDiffFactory.Create(fileSystem);
+            var fileSystemHelper = new FileSystemHelper(fileSystem);
+            
+            var runner = new Runner(diffTool, fileSystemHelper);
 
             Console.WriteLine(runner.GetNewerAndUniqueDiffFiles(arguments.ReferenceFolder, arguments.DiffFolder));
         }

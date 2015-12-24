@@ -5,29 +5,49 @@
 Set-Location $PSScriptRoot
 
 Add-Type -path '.\FolderDiffLib.dll'
-$factory = New-Object FolderDiffLib.DiffTools.FolderDiffToolFactory
-$diffTool = $factory.Create($supportLongFilenames)
+
+$fileSystem = [FolderDiffLib.DiffTools.FileSystemFactory]::Create($supportLongFilesNames);
+$fileSystemHelper = New-Object FolderDiffLib.FileSystemHelper -ArgumentList $fileSystem
+
+function Path-Combine {
+	param(
+	[string] $dir,
+	[string] $file
+	)
+	$fileSystemHelper.PathCombine($dir, $file);
+}
 
 function File-Exists {
 	param(
-	[string] $path,
-	[string] $fileRelativePath
+	[string] $path
 	)
 
-	$fullName = Join-Path -Path $path -ChildPath $fileRelativePath
-	$diffTool.FileExists($fullName)
+	$fileSystemHelper.FileExists($path);
 }
 
 function Get-File {
 	param(
-	[string] $path,
-	[string] $fileRelativePath
+	[string] $path
 	) 
 
-	$fullName = Join-Path -Path $path -ChildPath $fileRelativePath
-	$diffTool.GetFile($fullName)
+	$fileSystemHelper.GetFile($path);
 }
 
+function Get-Files {
+	param(
+	[string] $path,
+	[string] $searchPattern) 
+	
+	$fileSystemHelper.GetFiles($path, $searchPattern, [System.IO.SearchOption]::TopDirectoryOnly);
+}
+
+function Get-Files-Recursive {
+	param(
+	[string] $path,
+	[string] $searchPattern)
+		 
+	$fileSystemHelper.GetFiles($path, $searchPattern);
+}
 
 #http://stackoverflow.com/a/22090065
 function Test-Any {

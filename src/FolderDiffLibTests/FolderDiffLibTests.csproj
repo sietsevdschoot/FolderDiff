@@ -74,6 +74,8 @@
   <ItemGroup>
     <Compile Include="ArgumentsParserTests.cs" />
     <Compile Include="DelimonHelpers\DelimonDirectoryInfoWrapperTests.cs" />
+    <Compile Include="FolderDiffTests.cs" />
+    <Compile Include="FileSystemHelperTests.cs" />
     <Compile Include="TestUtils\TestableDelimonHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

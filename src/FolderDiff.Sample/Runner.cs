@@ -1,18 +1,16 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Delimon.Win32.IO;
-using FolderDiffLib;
-using FolderDiffLib.DiffTools;
-using FolderDiffLib.DiffTools.Interfaces;
 
-namespace FolderDiff.Sample
+namespace FolderDiffLib.Sample
 {
     public class Runner
     {
-        private readonly IFolderDiffTool _diffTool;
+        private readonly FolderDiff _diffTool;
+        private readonly FileSystemHelper _fileHelper;
 
-        public Runner(IFolderDiffTool diffTool)
+        public Runner(FolderDiff diffTool, FileSystemHelper fileHelper)
         {
+            _fileHelper = fileHelper;
             _diffTool = diffTool;
         }
 
@@ -22,12 +20,12 @@ namespace FolderDiff.Sample
                 (file, refFiles) =>
                 {
                     var referenceFile = Path.Combine(referenceFolder, file.RelativePath);
-                    return _diffTool.FileExists(referenceFile) && file.File.LastWriteTime > _diffTool.GetFile(referenceFile).LastWriteTime;
+                    return _fileHelper.FileExists(referenceFile) && file.File.LastWriteTime > _fileHelper.GetFile(referenceFile).File.LastWriteTime;
                 },
                 (file, refFiles) =>
                 {
                     var referenceFile = Path.Combine(referenceFolder, file.RelativePath);
-                    return !_diffTool.FileExists(referenceFile);
+                    return !_fileHelper.FileExists(referenceFile);
                 });
 
             var output = string.Format("\n{0}\n", string.Join("\n", files.OrderBy(x => x.FullName).Select(x => x.FullName)));
