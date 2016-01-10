@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO.Abstractions;
-using Delimon.Win32.IO;
 
 namespace FolderDiffLib.DelimonHelpers
 {

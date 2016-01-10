@@ -299,7 +299,7 @@ namespace FolderDiffLib.DelimonHelpers
 
         public override void WriteAllText(string path, string contents)
         {
-            throw new NotImplementedException("This method is not implemented by Delimon.Win32.IO.File");
+            WriteAllLines(path, contents.Split(new [] {Environment.NewLine}, StringSplitOptions.None));
         }
 
         public override void WriteAllText(string path, string contents, Encoding encoding)

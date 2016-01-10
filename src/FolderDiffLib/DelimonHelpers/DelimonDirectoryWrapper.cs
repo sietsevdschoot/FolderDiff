@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.IO.Abstractions;
+using System.Linq;
 using System.Security.AccessControl;
 using FolderDiffLib.DelimonHelpers.Util;
+using SearchOption = System.IO.SearchOption;
 
 namespace FolderDiffLib.DelimonHelpers
 {
@@ -58,7 +59,8 @@ namespace FolderDiffLib.DelimonHelpers
 
         public override string GetCurrentDirectory()
         {
-            throw new NotImplementedException("This method is not implemented by Delimon.Win32.IO.Directory");
+            // Todo: Implement this correctly, supporting long filesnames
+            return System.IO.Directory.GetCurrentDirectory();
         }
 
         public override string[] GetDirectories(string path)
@@ -163,7 +165,8 @@ namespace FolderDiffLib.DelimonHelpers
 
         public override void SetCurrentDirectory(string path)
         {
-            throw new NotImplementedException("This method is not implemented by Delimon.Win32.IO.Directory");
+            // Todo: Implement this correctly, supporting long filesnames
+            System.IO.Directory.SetCurrentDirectory(path);
         }
 
         public override void SetLastAccessTime(string path, DateTime lastAccessTime)

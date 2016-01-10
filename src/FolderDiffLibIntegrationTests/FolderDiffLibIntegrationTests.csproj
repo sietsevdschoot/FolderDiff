@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BBD9A714-4F41-4DE0-B5CC-CB57FC1EB674}</ProjectGuid>
+    <ProjectGuid>{188116EB-E735-41C7-A4E5-668AF3AC02F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FolderDiffLibTests</RootNamespace>
-    <AssemblyName>FolderDiffLibTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>FolderDiffLibIntegrationTests</RootNamespace>
+    <AssemblyName>FolderDiffLibIntegrationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -35,18 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Delimon.Win32.IO">
-      <HintPath>..\..\..\..\..\Backup\Laptop\Development\FolderDiff\ReferencedAssemblies\Delimon.Win32.IO.dll</HintPath>
-    </Reference>
     <Reference Include="FluentAssertions, Version=3.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.dll</HintPath>
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net40\FluentAssertions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FluentAssertions.Core, Version=3.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net40\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.IO.Abstractions, Version=2.0.0.123, Culture=neutral, PublicKeyToken=d480b5b72fb413da, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Abstractions.2.0.0.123\lib\net40\System.IO.Abstractions.dll</HintPath>
       <Private>True</Private>
@@ -71,30 +71,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ArgumentsParserTests.cs" />
-    <Compile Include="DelimonHelpers\DelimonDirectoryInfoWrapperTests.cs" />
-    <Compile Include="DelimonHelpers\DelimonTests.cs" />
-    <Compile Include="Extensions\FluentAssertionExtensions.cs" />
-    <Compile Include="FolderDiffTests.cs" />
-    <Compile Include="FileSystemHelperTests.cs" />
-    <Compile Include="TestUtils\TestableDelimonHelpers.cs" />
+    <Compile Include="FileSystemHelperDelimonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FolderDiff.Sample\FolderDiff.Sample.csproj">
-      <Project>{166A5D4E-379E-4657-BB24-D424242F3614}</Project>
-      <Name>FolderDiff.Sample</Name>
+    <ProjectReference Include="..\FolderDiffLibTests\FolderDiffLibTests.csproj">
+      <Project>{bbd9a714-4f41-4de0-b5cc-cb57fc1eb674}</Project>
+      <Name>FolderDiffLibTests</Name>
     </ProjectReference>
     <ProjectReference Include="..\FolderDiffLib\FolderDiffLib.csproj">
       <Project>{C596EAE3-BB4F-425E-860B-1017C60085E9}</Project>
       <Name>FolderDiffLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

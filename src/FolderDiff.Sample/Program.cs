@@ -21,7 +21,7 @@ namespace FolderDiffLib.Sample
             }
             var arguments = ArgumentsParser.Default.ParseArguments(args);
             
-            var fileSystem = FileSystemFactory.Create(supportLongFilenames: true);
+            var fileSystem = FileSystemFactory.Create(supportLongFilenames: false);
             var diffTool = FolderDiffFactory.Create(fileSystem);
             var fileSystemHelper = new FileSystemHelper(fileSystem);
             

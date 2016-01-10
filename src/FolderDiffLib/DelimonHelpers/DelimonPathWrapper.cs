@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Abstractions;
+using System.Linq;
 
 namespace FolderDiffLib.DelimonHelpers
 {
@@ -12,24 +13,27 @@ namespace FolderDiffLib.DelimonHelpers
             return Delimon.Win32.IO.Path.ChangeExtension(path, extension);
         }
 
-        public override string Combine(params string[] paths)
-        {
-            throw new NotImplementedException("This method is not implemented by Delimon.Win32.IO.DirectoryInfo");
-        }
-
         public override string Combine(string dir, string file)
         {
             return Delimon.Win32.IO.Path.Combine(dir, file);
         }
 
+        public override string Combine(params string[] paths)
+        {
+            var path1 = paths.Length > 0 ? paths[0] : string.Empty;
+            var path2 = paths.Length > 1 ? paths[1] : string.Empty;
+
+            return paths.Skip(2).Aggregate(Combine(path1, path2), Combine);
+        }
+
         public override string Combine(string path1, string path2, string path3)
         {
-            throw new NotImplementedException("This method is not implemented by Delimon.Win32.IO.DirectoryInfo");
+            return Combine(new[] {path1, path2, path3});
         }
 
         public override string Combine(string path1, string path2, string path3, string path4)
         {
-            throw new NotImplementedException("This method is not implemented by Delimon.Win32.IO.DirectoryInfo");
+            return Combine(new[] { path1, path2, path3, path4 });
         }
 
         public override string GetDirectoryName(string path)
