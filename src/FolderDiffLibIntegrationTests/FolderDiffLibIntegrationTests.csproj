@@ -71,6 +71,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BootStrapper.cs" />
+    <Compile Include="Extensions\FluentAssertionExtensions.cs" />
     <Compile Include="FileSystemHelperDelimonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,10 +80,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FolderDiffLibTests\FolderDiffLibTests.csproj">
-      <Project>{bbd9a714-4f41-4de0-b5cc-cb57fc1eb674}</Project>
-      <Name>FolderDiffLibTests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FolderDiffLib\FolderDiffLib.csproj">
       <Project>{C596EAE3-BB4F-425E-860B-1017C60085E9}</Project>
       <Name>FolderDiffLib</Name>

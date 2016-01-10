@@ -5,8 +5,9 @@ using System.IO.Abstractions.TestingHelpers;
 using FluentAssertions;
 using FolderDiffLib;
 using FolderDiffLib.DiffTools;
-using FolderDiffLibTests.Extensions;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestUtils.Extensions;
 
 
 namespace FolderDiffLibTests
@@ -213,7 +214,6 @@ namespace FolderDiffLibTests
             const string directory = @"D:\Destination\";
             const string expectedDirectory = @"D:\RenamedFolder\";
 
-            _fileSystem.AddDirectory(directory);
             _fileSystem.AddFile(directory + "1.txt", new MockFileData(string.Empty));
             _fileSystem.AddFile(directory + "2.txt", new MockFileData(string.Empty));
 
